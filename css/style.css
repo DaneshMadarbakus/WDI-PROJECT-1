@@ -4,6 +4,7 @@ body{
 }
 h1{
   margin:0px;
+  font-family: 'Aref Ruqaa', serif;
 }
 .top{
   background-color: orange;
@@ -16,6 +17,9 @@ h1{
   height:483px;
   width: 40%;
   float:left;
+}
+h2 {
+  font-family: 'Aref Ruqaa', serif;
 }
 .mainBoard{
   background-image: url("../images/pattern_14.jpg");
@@ -56,6 +60,27 @@ li{
   margin:20px 0 0 0;
   border-radius:50%;
 }
+
 #audio{
   width:40%;
+}
+/*
+.modal {
+  background: red;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  height: 50%;  Set your own height: percents, ems, whatever!
+  width: 50%;  Set your own width: percents, ems, whatever!
+  overflow: auto;  Recommended in case content is larger than the container
+  margin: auto;  Center the item vertically & horizontally
+  position: absolute;  Break it out of the regular flow
+  top: 0; left: 0; bottom: 0; right: 0; Set the bounds in which to center it, relative to its parent/container
+} */
+
+body, a:hover {
+  cursor: url(http://cur.cursors-4u.net/others/oth-2/oth181.cur), progress !important;
 }
