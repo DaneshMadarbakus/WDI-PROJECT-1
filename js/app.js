@@ -20,11 +20,9 @@
 
 
 
-
 console.log('working');
 
 var ConorGame = ConorGame || {};
-
 
 //Determine if there is a winner and set loop
 ConorGame.determineWinner = function(){
@@ -32,6 +30,7 @@ ConorGame.determineWinner = function(){
   if(ConorGame.ConorsLife === 0) {
     ConorGame.playing = false;
     alert('You lose!');
+    new Audio('../audio/cocky.mp3').play();
     ConorGame.ConorsLife = 100;
     ConorGame.ComputerLife = 100;
     $('#conorsHealth').text(ConorGame.ConorsLife);
@@ -39,6 +38,7 @@ ConorGame.determineWinner = function(){
   } else if (ConorGame.ComputerLife === 0) {
     ConorGame.playing = false;
     alert('You win!');
+    new Audio('../audio/irelandbaby.mp3').play();
     ConorGame.ConorsLife = 100;
     ConorGame.ComputerLife = 100;
     $('#conorsHealth').text(ConorGame.ConorsLife);
@@ -49,11 +49,12 @@ ConorGame.determineWinner = function(){
   }
 };
 
-
 // Remove mole if not clicked and adjust life if neccessary
 ConorGame.removeMole = function() {
   if (this.$img === this.EddieAlvarezPic) {
     $('.mole').delay(1000).fadeOut(50, function(){
+      new Audio('../audio/buzzer.mp3').play();
+      new Audio('../audio/fookoff.mp3').play();
       $('.mole').remove();
       ConorGame.ConorsLife = ConorGame.ConorsLife - 10;
       $('#conorsHealth').text(ConorGame.ConorsLife);
@@ -68,13 +69,14 @@ ConorGame.removeMole = function() {
   }
 };
 
-
 // adds a clicker to the popped up mole
 ConorGame.addClickerToMole = function(){
   if (this.$img === this.EddieAlvarezPic) {
     this.$img.one('click', function(){
       ConorGame.$img.remove();
-      new Audio('../audio/snake.mp3').play();
+      new Audio('../audio/punch.mp3').play();
+      console.log('conor quote', ConorGame.conorQuote);
+      new Audio(ConorGame.conorQuoteArray[Math.floor(Math.random() * ConorGame.conorQuoteArray.length)]).play();
       ConorGame.ComputerLife = ConorGame.ComputerLife - 10;
       $('#opponentsHealth').text(ConorGame.ComputerLife);
       // console.log('computer', ConorGame.ComputerLife);
@@ -83,6 +85,8 @@ ConorGame.addClickerToMole = function(){
   } else if (this.$img === this.ArrianyPic || this.$img ===  this.DanaWhitePic) {
     this.$img.one('click', function(){
       ConorGame.$img.remove();
+      new Audio('../audio/buzzer.mp3').play();
+      new Audio('../audio/fookoff.mp3').play();
       ConorGame.ConorsLife = ConorGame.ConorsLife - 10;
       $('#conorsHealth').text(ConorGame.ConorsLife);
       // console.log('conor', ConorGame.ConorsLife);
@@ -125,6 +129,7 @@ ConorGame.setupTwo = function (){
 //start game
 ConorGame.setup = function(){
   this.playing = true;
+  this.conorQuoteArray = ['../audio/snake.mp3', '../audio/whothefuckisthatguy.mp3', '../audio/lefthand.mp3', '../audio/bumlife.mp3', '../audio/liltwerp.mp3', '../audio/whothefuckisthatguy.mp3'];
   this.ConorsLife = 100;
   this.ComputerLife = 100;
   this.DanaWhitePic = $('<img>', {class: 'mole', src: '../images/dana_white.jpg'});
