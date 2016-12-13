@@ -1,31 +1,155 @@
+/*
+#F2F2F2
+triple gradient green white orange
+be consistent with squares border radius
+*/
+
 body{
   text-align: center;
   font-family: tahoma;
+  margin:0;
+  background:linear-gradient(to right, green,#FAFAFA,orange);
+}
+
+.greyScreen {
+background-color: rgba(0, 0, 0, 0.5);
+z-index: 1;
+height:100%;
+width:100%;
+position:absolute;
+}
+.modal, .modal2, .modal3{
+  background-color: #FAFAFA;
+  /*background-image: url(../images/halftone.png);*/
+  z-index: 2;
+  height: 100px;
+  height:550px;
+  width:900px;
+  /*overflow: auto;*/
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border:2px solid rgba(0,0,0,0.5);
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+.h2modal{
+  color:darkorange;
+  font-size: 35px;
+  font-family: 'Aref Ruqaa', serif;
+  margin:20px 0 0 0;
+  text-shadow: 1px 1px black;
+}
+.imgmodal{
+  width:50%;
+  height:400px;
+  float:left;
+  margin:40px 10px;
+  border:1px solid white;
+  border-radius:10px;
+}
+.modalmodal{
+  background-color: rgba(255,255,255,0.5);
+  height:400px;
+  float:right;
+  width:405px;
+  margin:40px 10px;
+  border-radius: 5px;
+}
+.h3modal{
+  float:right;
+  font-size: 30px;
+  height:80px;
+  width:400px;
+  margin:0;
+  font-family: 'Aref Ruqaa', serif;
+  color:green;
+  font-weight:600;
+  text-shadow:1px 1px black;
+}
+#h3modal3{
+  height:130px;
+}
+.pmodal{
+  float:right;
+  font-size: 17px;
+  height:180px;
+  width:400px;
+  color:black;
+  margin:30px 0 0 0;
+}
+#pmodal3{
+  height:130px;
+}
+#conorgif{
+  height:180px;
+  width:400px;
+  border-radius:10px;
 }
 h1{
+  font-size:45px;
   margin:0px;
   font-family: 'Aref Ruqaa', serif;
+  text-shadow:2px 2px white;
 }
 .top{
-  background-color: orange;
+  /*background-color: orange;*/
   width:100%;
   height:60px;
-
 }
 .left{
-  background-color: white;
-  height:483px;
+  /*background-color: white;*/
+  margin-top:30px;
+  height:463px;
   width: 40%;
   float:left;
 }
-h2 {
+.healthdiv{
+  height:30px;
+  width:80%;
+  margin:0 auto;
+  margin-top: 30px;
+}
+.header2 {
   font-family: 'Aref Ruqaa', serif;
+  display:inline;
+  float:left;
+  margin:0;
+  text-shadow:1px 1px white;
+}
+#conorsHealth {
+  display:inline;
+  float:right;
+  margin:10px 0 0 0;
+  position:relative;
+  bottom:0;
+  text-shadow: 1px 1px white;
+}
+#opponentsHealth {
+  display:inline;
+  float:right;
+  margin:10px 0 0 0;
+  position:relative;
+  bottom:0;
+  text-shadow: 1px 1px white;
+}
+#conorHealthImg {
+  height:270px;
+  width:300px;
+  border-radius:50%;
+  /*border:3px solid rgb(36, 211, 33);*/
+  display:block;
+  margin: 10px auto;
 }
 .mainBoard{
-  background-image: url("../images/pattern_14.jpg");
+  /*background-image: url("../images/pattern_14.jpg");*/
   height:515px;
   width:60%;
   float:right;
+  margin-top:10px;
 }
 ul{
   padding:0px;
@@ -38,12 +162,12 @@ li{
   height:140px;
   width:140px;
   margin:10px;
-  border:2px solid white;
+  /*border:2px solid white;*/
   border-radius: 50%;
 }
-#startGameButton{
-  height:70px;
-  width:400px;
+.startGameButton{
+  height:100px;
+  width:405px;
   margin:10px 0 0 0;
   font-size:40px;
   color:black;
@@ -51,36 +175,46 @@ li{
   background-image: url(../images/irish_flag.png);
   background-size: cover;
   background-position: center;
+  float:right;
+  border-radius:10px;
 }
 .mole{
   position:relative;
   bottom: 10px;
   height:120px;
   width:120px;
-  margin:20px 0 0 0;
+  margin:20px 0 0 10px;
   border-radius:50%;
+  float:left;
+  display: inline;
 }
-
 #audio{
   width:40%;
-}
-/*
-.modal {
-  background: red;
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100px;
-  height: 100px;
-  height: 50%;  Set your own height: percents, ems, whatever!
-  width: 50%;  Set your own width: percents, ems, whatever!
-  overflow: auto;  Recommended in case content is larger than the container
-  margin: auto;  Center the item vertically & horizontally
-  position: absolute;  Break it out of the regular flow
-  top: 0; left: 0; bottom: 0; right: 0; Set the bounds in which to center it, relative to its parent/container
-} */
+  display:none;
 
+}
+.hide{
+  display:none;
+}
+footer{
+  clear:both;
+  width:100%;
+  height:40px;
+}
+nav{
+  width:100%;
+  height:20px;
+  padding:20px 0;
+  font-style: italic;
+}
+#heartb{
+  font-style: italic;
+  font-family: serif;
+}
+.heartbi{
+  height:15px;
+  width:15px;
+}
 body, a:hover {
   cursor: url(http://cur.cursors-4u.net/others/oth-2/oth181.cur), progress !important;
 }

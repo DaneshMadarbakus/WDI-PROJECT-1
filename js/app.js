@@ -18,6 +18,11 @@
 // curl -O url
 // python -m SimpleHTTPServer // cmnd+c to switch off
 
+// add another modal to signal the end of the game (either win or lose)
+// add function to switch the image
+// continue to style the page
+
+
 
 
 console.log('working');
@@ -29,7 +34,8 @@ ConorGame.determineWinner = function(){
   var self = this;
   if(ConorGame.ConorsLife === 0) {
     ConorGame.playing = false;
-    alert('You lose!');
+    $('.modal3').removeClass('hide');
+    $('.greyScreen').removeClass('hide');
     new Audio('../audio/cocky.mp3').play();
     ConorGame.ConorsLife = 100;
     ConorGame.ComputerLife = 100;
@@ -37,7 +43,8 @@ ConorGame.determineWinner = function(){
     $('#opponentsHealth').text(ConorGame.ComputerLife);
   } else if (ConorGame.ComputerLife === 0) {
     ConorGame.playing = false;
-    alert('You win!');
+    $('.modal2').removeClass('hide');
+    $('.greyScreen').removeClass('hide');
     new Audio('../audio/irelandbaby.mp3').play();
     ConorGame.ConorsLife = 100;
     ConorGame.ComputerLife = 100;
@@ -46,6 +53,19 @@ ConorGame.determineWinner = function(){
   } else if (ConorGame.playing) {
     console.log('vijdivbiuc', ConorGame.playing);
     setTimeout(ConorGame.pickMole.bind(self), 2000);
+  }
+};
+
+// Adjust connor's pic depending on how much life he has
+ConorGame.adjustPics = function(){
+  if (this.ConorsLife >= 80){
+    $('#conorHealthImg').attr('src', this.conorPic1);
+  } else if (this.ConorsLife >= 50 && this.ConorsLife < 80) {
+    $('#conorHealthImg').attr('src', this.conorPic2);
+  } else if (this.ConorsLife >= 30 && this.ConorsLife < 50) {
+    $('#conorHealthImg').attr('src', this.conorPic3);
+  } else {
+    $('#conorHealthImg').attr('src', this.conorPic4);
   }
 };
 
@@ -58,15 +78,16 @@ ConorGame.removeMole = function() {
       $('.mole').remove();
       ConorGame.ConorsLife = ConorGame.ConorsLife - 10;
       $('#conorsHealth').text(ConorGame.ConorsLife);
-      console.log('Conor', ConorGame.ConorsLife);
+      // console.log('Conor', ConorGame.ConorsLife);
     });
   } else if (this.$img === this.ArrianyPic || this.$img ===  this.DanaWhitePic) {
     $('.mole').delay(1000).fadeOut(50, function(){
       $('.mole').remove();
-      console.log('Computer', this.ComputerLife);
-      console.log('Conor', this.ConorsLife);
+      // console.log('Computer', this.ComputerLife);
+      // console.log('Conor', this.ConorsLife);
     });
   }
+  ConorGame.adjustPics();
 };
 
 // adds a clicker to the popped up mole
@@ -74,9 +95,8 @@ ConorGame.addClickerToMole = function(){
   if (this.$img === this.EddieAlvarezPic) {
     this.$img.one('click', function(){
       ConorGame.$img.remove();
-      new Audio('../audio/punch.mp3').play();
-      console.log('conor quote', ConorGame.conorQuote);
-      new Audio(ConorGame.conorQuoteArray[Math.floor(Math.random() * ConorGame.conorQuoteArray.length)]).play();
+      (new Audio('../audio/punch.mp3')).play();
+      (new Audio(ConorGame.conorQuoteArray[Math.floor(Math.random() * ConorGame.conorQuoteArray.length)])).play();
       ConorGame.ComputerLife = ConorGame.ComputerLife - 10;
       $('#opponentsHealth').text(ConorGame.ComputerLife);
       // console.log('computer', ConorGame.ComputerLife);
@@ -85,8 +105,8 @@ ConorGame.addClickerToMole = function(){
   } else if (this.$img === this.ArrianyPic || this.$img ===  this.DanaWhitePic) {
     this.$img.one('click', function(){
       ConorGame.$img.remove();
-      new Audio('../audio/buzzer.mp3').play();
-      new Audio('../audio/fookoff.mp3').play();
+      (new Audio('../audio/buzzer.mp3')).play();
+      (new Audio('../audio/fookoff.mp3')).play();
       ConorGame.ConorsLife = ConorGame.ConorsLife - 10;
       $('#conorsHealth').text(ConorGame.ConorsLife);
       // console.log('conor', ConorGame.ConorsLife);
@@ -123,19 +143,27 @@ ConorGame.pickMole = function(){
 ConorGame.setupTwo = function (){
   this.playing = true;
   new Audio('../audio/weallgotowar.mp3').play();
+  $('.modal, .modal2, .modal3').addClass('hide');
+  $('.greyScreen').addClass('hide');
+  $('#conorHealthImg').attr('src', this.conorPic1);
   this.pickMole();
 };
 
 //start game
 ConorGame.setup = function(){
   this.playing = true;
-  this.conorQuoteArray = ['../audio/snake.mp3', '../audio/whothefuckisthatguy.mp3', '../audio/lefthand.mp3', '../audio/bumlife.mp3', '../audio/liltwerp.mp3', '../audio/whothefuckisthatguy.mp3'];
+  this.conorQuoteArray = ['../audio/snake.mp3', '../audio/whothefuckisthatguy.mp3', '../audio/lefthand.mp3', '../audio/bumlife.mp3', '../audio/liltwerp.mp3', '../audio/youlldofookinnuttin.mp3'];
+  this.conorPic1 = ('../images/conormcgregor5.jpg');
+  this.conorPic2 = '../images/conormcgregor4.jpg';
+  this.conorPic3 = '../images/conormcgregorb1.jpg';
+  this.conorPic4 = '../images/conormcgregorb2.jpg';
   this.ConorsLife = 100;
   this.ComputerLife = 100;
   this.DanaWhitePic = $('<img>', {class: 'mole', src: '../images/dana_white.jpg'});
   this.ArrianyPic = $('<img>', {class: 'mole', src: '../images/arianny_celeste.png'});
   this.EddieAlvarezPic = $('<img>', {class: 'mole', src: '../images/eddie_alvarez.png'});
-  $('#startGameButton').on('click', this.setupTwo.bind(this));
+  (new Audio('../audio/talklikeitalk.mp3')).play();
+  $('.startGameButton').on('click', this.setupTwo.bind(this));
 };
 
 $(ConorGame.setup.bind(ConorGame));

@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Conor McGregor's Whack-A-Bum</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa|Pinyon+Script" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="js/app.js" charset="utf-8"></script>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title>Conor McGregor's Whack-A-Bum</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa|Pinyon+Script" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="js/app.js" charset="utf-8"></script>
+</head>
+<body>
+  <div class="greyScreen"></div>
+  <div class="modal">
+    <h2 class="h2modal">Welcome to Conor McGregor's Whack-A-Bum!</h2>
+    <img src="images/conor-mcgregor.jpg" alt="Conor McGregor Champ Champ" class="imgmodal">
+    <div class="modalmodal">
+      <h3 class="h3modal">Are you ready to become the Champ Champ?</h3>
+      <p class="pmodal">UFC205 Conor McGregor was able to knock out Eddie Alvarez in round 2 and become the joint light and featherweight champion of the UFC. The CHAMP CHAMP. This is your chance to have a go at smacking that bum Eddie Alvarez some more. Can you do what Mcgregor did and become the CHAMP CHAMP too?</p>
+      <button type="button" name="button" class="startGameButton">Start Whackin'!</button>
+    </div>
+  </div>
   <div class="top">
     <h1>Conor McGregor's Whack-A-Bum</h1>
   </div>
   <div class="left">
-    <button type="button" name="button" id="startGameButton">Start Game</button>
-    <h2>Conor McGregor's health</h2>
-    <h3 id="conorsHealth">100</h3>
-    <h2>The bum's health</h2>
-    <h3 id="opponentsHealth">100</h3>
+    <img src="images/conormcgregor5.jpg" alt="Conor McGregor" id="conorHealthImg">
+    <div class="healthdiv">
+      <h2 class="header2">Conor McGregor's health</h2>
+      <h3 id="conorsHealth">100</h3>
+    </div>
+    <br>
+    <div class="healthdiv">
+      <h2 class="header2">The bum's health</h2>
+      <h3 id="opponentsHealth">100</h3>
+    </div>
   </div>
   <div class="mainBoard">
-    <!-- <div class="modal">
-
-    </div> -->
     <ul>
       <li id="0"></li>
       <li id="1"></li>
@@ -39,8 +51,32 @@
     </ul>
   </div>
   <audio controls autoplay loop id="audio">
-  <source src="./audio/conormcgregormusic.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
+    <source src="./audio/conormcgregormusic.mp3" type="audio/mpeg">
+    </audio>
+    <div class="modal2 hide">
+      <h2 class="h2modal">Congratulations you won!</h2>
+      <img src="images/conorwins.jpg" alt="Conor McGregor Champ Champ" class="imgmodal">
+      <div class="modalmodal">
+        <h3 class="h3modal">You are now the undisputed Champ Champ!</h3>
+        <p class="pmodal"><img src="images/conorgif.gif" alt="Conor knocking out Eddie" id="conorgif"></p>
+        <button type="button" name="button" class="startGameButton">Let's go again!</button>
+      </div>
+    </div>
+    <div class="modal3 hide">
+      <h2 class="h2modal">You <span>lost!</span></h2>
+      <img src="images/conorlose.png" alt="Conor McGregor Champ Champ" class="imgmodal">
+      <div class="modalmodal">
+        <h3 class="h3modal" id="h3modal3">Don't give up! Try again and become the undisputed Champ Champ!</h3>
+        <p class="pmodal" id="pmodal3">As coach Kavanagh always says, "you either win or learn!" That's right, you've learnt a valuable lesson! Now press that button and go again!</p>
+        <button type="button" name="button" class="startGameButton">Get your revenge!</button>
+      </div>
+    </div>
+    <footer>
+      <nav>
+        <a id="heartb">The Heartbreak Kid</a>
+        <a><img src="images/heartbki1.png" alt="broken heart" class="heartbi"></a>
+        <a href="https://github.com/DaneshMadarbakus">Github</a>
+      </nav>
+    </footer>
   </body>
-</html>
+  </html>
