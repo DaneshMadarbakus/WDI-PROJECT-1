@@ -4,11 +4,11 @@
 
 This is my first project from my Web Development Immersive course at General Assembly. The task was to build a fully functional game using the skills we've learnt till now. I decided to make a whack-a-mole game and give it a Conor Mcgregor theme as he is a rising star in current popular culture. 
 
-You can play the game here: [***Conor McGregor's Whack-A-Bum***](https://floating-beach-85715.herokuapp.com/) 
+You can play the game here: [***Conor McGregor's Whack-A-Bum***](https://conor-whack-a-bum.herokuapp.com/) 
 
-![alt text](http://imgur.com/BCl9r92 "Conor McGregor Whack-A-Bum Start Screen") 
+![alt text](http://imgur.com/BCl9r92.png "Conor McGregor Whack-A-Bum Start Screen") 
 
-![alt text](http://imgur.com/CCcbzU6 "Conor McGregor Whack-A-Bum Mid Game") 
+![alt text](http://imgur.com/CCcbzU6.png "Conor McGregor Whack-A-Bum Mid Game") 
 
 ###How to play
 To play this game you must hit all the pictures of Eddie Alvarez (the fighter/bum), as they pop up and by doing so you reduce his health. If you miss Eddie or if you hit the picture of the ring girl or Dana White, you lose health. To win you must reduce Eddie's health to zero. If you however lose all of your health, you lose. 
