@@ -25,8 +25,6 @@
 
 
 
-console.log('working');
-
 var ConorGame = ConorGame || {};
 
 //Determine if there is a winner and set loop
@@ -51,7 +49,6 @@ ConorGame.determineWinner = function(){
     $('#conorsHealth').text(ConorGame.ConorsLife);
     $('#opponentsHealth').text(ConorGame.ComputerLife);
   } else if (ConorGame.playing) {
-    console.log('vijdivbiuc', ConorGame.playing);
     setTimeout(ConorGame.pickMole.bind(self), 2000);
   }
 };
@@ -78,13 +75,10 @@ ConorGame.removeMole = function() {
       $('.mole').remove();
       ConorGame.ConorsLife = ConorGame.ConorsLife - 10;
       $('#conorsHealth').text(ConorGame.ConorsLife);
-      // console.log('Conor', ConorGame.ConorsLife);
     });
   } else if (this.$img === this.ArrianyPic || this.$img ===  this.DanaWhitePic) {
     $('.mole').delay(1000).fadeOut(50, function(){
       $('.mole').remove();
-      // console.log('Computer', this.ComputerLife);
-      // console.log('Conor', this.ConorsLife);
     });
   }
   ConorGame.adjustPics();
@@ -99,7 +93,6 @@ ConorGame.addClickerToMole = function(){
       (new Audio(ConorGame.conorQuoteArray[Math.floor(Math.random() * ConorGame.conorQuoteArray.length)])).play();
       ConorGame.ComputerLife = ConorGame.ComputerLife - 10;
       $('#opponentsHealth').text(ConorGame.ComputerLife);
-      // console.log('computer', ConorGame.ComputerLife);
     });
 
   } else if (this.$img === this.ArrianyPic || this.$img ===  this.DanaWhitePic) {
@@ -109,7 +102,6 @@ ConorGame.addClickerToMole = function(){
       (new Audio('../audio/fookoff.mp3')).play();
       ConorGame.ConorsLife = ConorGame.ConorsLife - 10;
       $('#conorsHealth').text(ConorGame.ConorsLife);
-      // console.log('conor', ConorGame.ConorsLife);
     });
   }
   ConorGame.removeMole();
@@ -117,8 +109,6 @@ ConorGame.addClickerToMole = function(){
 
 //mole appears
 ConorGame.molesAppear = function(){
-  // console.log(this.$img);
-  // console.log(this.$pickMolePic);
   this.pickHole = Math.floor(Math.random() * 12);
   $('li').eq(this.pickHole).append(this.$img.hide().fadeIn(100));
   this.addClickerToMole();
